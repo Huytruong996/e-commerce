@@ -39,7 +39,7 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"],
   },
   devServer: {
-    port: 9000,
-    static: path.join(__dirname, "build"),
+    port: process.env.PORT || 9000,
+    static: __dirname,
   },
 };
