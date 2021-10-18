@@ -72,7 +72,7 @@ const SpecialProductV1 = (props) => {
             </Progress>
           </DealProgress>
         </ProductSpecialContent>
-        <CountDownComponent thenVal={props.CountDownSale} />
+        {/* <CountDownComponent thenVal={props.CountDownSale} /> */}
       </ProductSpecialWrapper>
     </BlockSpecialProduct>
   );
