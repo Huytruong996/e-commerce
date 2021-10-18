@@ -1,9 +1,0 @@
-export { default as TopBar } from "./TopBar";
-export { default as HeaderTop } from "./HeaderTop";
-export { default as HeaderMenu } from "./HeaderMenu";
-export { default as Slider } from "./Slider";
-export { default as HomeBanner } from "./HomeBanner";
-export { default as ProductSecionV1 } from "./ProductSectionV1";
-export { default as ProductSectionV2 } from "./ProductSectionV2";
-export { default as ProductGridSectionV1 } from "./ProductGridSectionV1";
-export { default as ShopifySectionMobile } from "./ShopifySectionMobile";
