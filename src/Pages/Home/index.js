@@ -34,7 +34,7 @@ const HomePage = ({ opened }) => {
 
   return (
     <React.Fragment>
-      {/* <TopBar {...TopBarData} /> */}
+      <TopBar {...TopBarData} />
       <header ref={headerRef}>
         <HeaderTop {...HeaderTopData} isSticky={isSticky} />
         <HeaderMenu isSticky={isSticky} />
@@ -42,7 +42,7 @@ const HomePage = ({ opened }) => {
         <ShopifySectionMobile />
       </header>
       <BodyContent opened={opened} onClick={handleToggleNavMobile}>
-        <Slider {...SLiderData} />
+        {/* <Slider {...SLiderData} /> */}
         <HomeBanner
           img={
             require("../../images/SpotLightBanner/spotlightbanner.jpg").default
