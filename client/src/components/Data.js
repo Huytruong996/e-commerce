@@ -1,0 +1,9 @@
+export { default as TopBarData } from "./TopBar/Data";
+export { default as HeaderTopData } from "./HeaderTop/Data";
+export { default as HeaderVerticalMenuData } from "./HeaderVerticalMenu/Data";
+export { default as HeaderHorizontalMenuData } from "./HeaderHorizontalMenu/Data";
+export { default as HeaderMenuRightData } from "./HeaderMenuRight/Data";
+export { default as SLiderData } from "./Slider/Data";
+export { default as ProductSectionV2Data } from "./ProductSectionV2/Data";
+export { default as ProductSectionV1Data } from "./ProductSectionV1/Data";
+export { default as ProductGridSectionV1Data } from "./ProductGridSectionV1/Data";
