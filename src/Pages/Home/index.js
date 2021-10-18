@@ -34,7 +34,7 @@ const HomePage = ({ opened }) => {
 
   return (
     <React.Fragment>
-      <TopBar {...TopBarData} />
+      {/* <TopBar {...TopBarData} /> */}
       <header ref={headerRef}>
         <HeaderTop {...HeaderTopData} isSticky={isSticky} />
         <HeaderMenu isSticky={isSticky} />
