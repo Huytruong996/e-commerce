@@ -1,4 +1,4 @@
-export { default as TopBarData } from "./TopBar/Data";
+export { default as TopBarData } from "./Topbar/Data";
 export { default as HeaderTopData } from "./HeaderTop/Data";
 export { default as HeaderVerticalMenuData } from "./HeaderVerticalMenu/Data";
 export { default as HeaderHorizontalMenuData } from "./HeaderHorizontalMenu/Data";
