@@ -42,7 +42,7 @@ const HomePage = ({ opened }) => {
         <ShopifySectionMobile />
       </header>
       <BodyContent opened={opened} onClick={handleToggleNavMobile}>
-        {/* <Slider {...SLiderData} /> */}
+        <Slider {...SLiderData} />
         <HomeBanner
           img={
             require("../../images/SpotLightBanner/spotlightbanner.jpg").default
