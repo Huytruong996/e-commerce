@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: path.resolve(__dirname, "./src/index.js"),
   output: {
     path: path.resolve(__dirname, "builder"),
@@ -42,7 +42,7 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"],
   },
   devServer: {
-    port: process.env.PORT || 8080,
-    static: __dirname,
+    port: process.env.PORT || 9000,
+    static: path.resolve(__dirname, "builder"),
   },
 };

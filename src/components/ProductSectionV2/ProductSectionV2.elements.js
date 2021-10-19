@@ -18,6 +18,9 @@ export const NavTab = styled.ul`
   padding: 0 0 15px;
   position: static;
   transform: translate(0);
+
+  overflow-y: hidden;
+  overflow-x: auto;
   left: 50%;
   top: -53px;
   white-space: nowrap;
