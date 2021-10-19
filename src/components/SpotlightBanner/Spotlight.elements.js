@@ -14,5 +14,5 @@ export const LinkBanner = styled(Link)`
 `;
 
 export const SpotlightWrapper = styled.div`
-  margin: 0 0 47px;
+  margin: 0 0 10px;
 `;
