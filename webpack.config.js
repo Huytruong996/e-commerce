@@ -42,7 +42,7 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"],
   },
   devServer: {
-    port: process.env.PORT,
+    port: process.env.PORT || 8080,
     static: __dirname,
   },
 };

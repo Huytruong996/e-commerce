@@ -26,7 +26,7 @@ const CountDownComponent = ({ thenVal }) => {
   const [countDown, setCoutDown] = useState(initialCountDown);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       const now = moment();
       const clockDuration = duration(then.diff(now)).format("DD HH:mm:ss");
 
@@ -44,7 +44,11 @@ const CountDownComponent = ({ thenVal }) => {
 
       setCoutDown({ days, hours, minutes, seconds });
     }, 1000);
-  }, [countDown, thenVal, then]);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [then]);
+
   return (
     <CountDownWrapper>
       <OfferText>Hurry Up! Offer ends in</OfferText>
