@@ -80,13 +80,8 @@ export const HeaderWrapTop = styled.div`
 export const HeaderTopContainer = styled(Container)``;
 
 export const HeaderTopLeft = styled.div`
-  flex: 0 0 16.66667%;
-  max-width: 16.66667%;
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  display: block;
+  text-align: center;
   margin-inline-end: auto;
 `;
 
@@ -255,7 +250,7 @@ export const HeaderLink = styled.div`
     margin-inline-start: 15%;
   }
 `;
-
+export const Price = styled.span``;
 export const Count = styled.span`
   position: absolute;
   top: 13px;
@@ -377,5 +372,10 @@ export const NumberCart = styled.span`
   @media (max-width: 991px) {
     position: relative;
     font-weight: 700;
+  }
+  @media (max-width: 479px) {
+    ${Price} {
+      display: none;
+    }
   }
 `;

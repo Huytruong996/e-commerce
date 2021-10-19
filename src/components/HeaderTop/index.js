@@ -20,6 +20,7 @@ import {
   MostSearchWrapper,
   NavBarResponsiveWrap,
   NumberCart,
+  Price,
   SearchBox,
   SearchIcon,
   SearchIconMobile,
@@ -73,7 +74,7 @@ const HeaderTop = ({
               </svg>
               <NumberCart>
                 <Count>2</Count>
-                <span>$1,350.00</span>
+                <Price>$1,350.00</Price>
               </NumberCart>
             </Link>
           </CartIconMobile>
