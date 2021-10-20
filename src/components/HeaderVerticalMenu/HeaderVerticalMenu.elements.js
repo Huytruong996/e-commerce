@@ -13,12 +13,12 @@ export const CategoriesTitle = styled.h3`
   line-height: 55px;
   border-radius: 6px 6px 0 0;
   position: relative;
-  background: #f03333;
-  color: #fff;
+  background: #fed700;
+  color: #333e48;
   font-size: 14px;
   margin: 0;
   padding: 0 30px;
-  font-weight: 500;
+  font-weight: 700;
   display: flex;
   &:after {
     content: "\f107";
@@ -34,7 +34,7 @@ export const CategoriesTitle = styled.h3`
 export const IconBar = styled.i`
   width: 13px;
   height: 2px;
-  background: #fff;
+  background: #333e48;
   display: inline-block;
   position: relative;
   margin: 26px 35px 0 0;
@@ -42,7 +42,7 @@ export const IconBar = styled.i`
     content: "";
     width: 22px;
     height: 2px;
-    background: #fff;
+    background: #333e48;
     display: inline-block;
     top: -6px;
     position: absolute;
@@ -51,7 +51,7 @@ export const IconBar = styled.i`
     content: "";
     width: 29px;
     height: 2px;
-    background: #fff;
+    background: #333e48;
     position: absolute;
     display: inline-block;
     bottom: -6px;
