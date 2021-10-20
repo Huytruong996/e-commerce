@@ -217,26 +217,32 @@ export const SearchIcon = styled.span`
   justify-content: center;
 `;
 
+export const Price = styled.span``;
+export const Count = styled.span``;
+
 export const HeaderLink = styled.div`
   position: relative;
   margin-top: -26px;
   text-align: right;
   font-size: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   svg {
     fill: #3e454a;
   }
-  * {
-    &:first-child {
-      margin-left: 0;
-    }
-    position: relative;
+  > div:first-child {
+    margin-left: 0;
+  }
+  > div {
     display: inline-block;
-    top: 2px;
-    transition: all 0.3s ease;
-    margin-left: 25px;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+    margin-inline-start: 15%;
   }
   a:hover {
-    span {
+    ${Count} {
       animation-name: ${hvrIconBobFloat}, ${hvrIconBob};
       animation-duration: 0.3s, 0.75s;
       animation-delay: 0s, 0.3s;
@@ -246,25 +252,14 @@ export const HeaderLink = styled.div`
       animation-direction: normal, alternate;
     }
   }
+  a {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
   a:not(:first-child) {
     margin-inline-start: 15%;
   }
-`;
-export const Price = styled.span``;
-export const Count = styled.span`
-  position: absolute;
-  top: 13px;
-  border: solid 1px #fed700;
-  border-radius: 50%;
-  background: #fed700;
-  color: #333e48;
-  font-size: 12px;
-  font-weight: 700;
-  width: 22px;
-  height: 22px;
-  text-align: center;
-  line-height: 22px;
-  left: -7px;
 `;
 
 export const MostSearchWrapper = styled.div`
@@ -357,25 +352,57 @@ export const CartIconMobile = styled.div`
   @media (min-width: ${Breakpoint.Tablet}) {
     display: none;
   }
-  ${Count} {
-    background: #333e48;
-    color: #ffff;
-    width: 21px;
-    height: 21px;
-    border: none;
-    top: 8px;
-    left: -23px;
-  }
 `;
 
 export const NumberCart = styled.span`
-  @media (max-width: 991px) {
-    position: relative;
+  display: inline;
+  font-weight: 700;
+  font-size: 14px;
+  margin-inline-start: 10px;
+  ${Count} {
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    background: #fed700;
+    color: #333e48;
+    text-align: center;
+    font-size: 12px;
     font-weight: 700;
+    border-radius: 50% 50% 50% 50%;
+    position: absolute;
+    left: 16px;
+    right: auto;
+    bottom: -10px;
+  }
+  @media (max-width: 991px) {
+    font-weight: 700;
+    ${Count} {
+      background: #333e48;
+      color: #ffff;
+      border: none;
+    }
   }
   @media (max-width: 479px) {
     ${Price} {
       display: none;
     }
+  }
+`;
+
+export const NumberWrapper = styled.span`
+  ${Count} {
+    position: absolute;
+    top: 13px;
+    border: solid 1px #fed700;
+    border-radius: 50%;
+    background: #fed700;
+    color: #333e48;
+    font-size: 12px;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    right: -8px;
   }
 `;
