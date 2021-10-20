@@ -204,14 +204,14 @@ export const TitleMenu = styled.h6`
     cursor: pointer;
     transition: all 0.35s ease 0s;
 
+    @media (min-width: 576px) {
+      display: none;
+    }
     ${(props) =>
       props.Active &&
       css`
         transform: rotate(180deg);
       `}
-    @media (min-width: 576px) {
-      display: none;
-    }
   }
 `;
 
@@ -230,17 +230,18 @@ export const FooterMenu = styled.div`
 export const ListUl = styled.ul`
   margin: 20px 0 0;
   display: none;
-  ${(props) =>
-    props.Active &&
-    css`
-      display: block;
-    `}
+
   @media (min-width: ${Breakpoint.SmallMobile}) {
     display: block;
   }
   @media (min-width: ${Breakpoint.Mobile}) {
     margin-top: 28px;
   }
+  ${(props) =>
+    props.Active &&
+    css`
+      display: block;
+    `}
 `;
 
 export const ListLi = styled.li`
