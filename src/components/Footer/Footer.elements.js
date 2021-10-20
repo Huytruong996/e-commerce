@@ -182,13 +182,6 @@ export const FooterLogo = styled.div`
   }
 `;
 
-export const FooterMenu = styled.div`
-  margin: 0 0 20px;
-  @media (min-width: ${Breakpoint.Mobile}) {
-    margin-bottom: 30px;
-  }
-`;
-
 export const TitleMenu = styled.h6`
   color: #333e48;
   font-size: 18px;
@@ -206,11 +199,42 @@ export const TitleMenu = styled.h6`
         visibility: hidden;
       `}
   }
+  span {
+    display: flex;
+    cursor: pointer;
+    transition: all 0.35s ease 0s;
+
+    ${(props) =>
+      props.Active &&
+      css`
+        transform: rotate(180deg);
+      `}
+    @media (min-width: 576px) {
+      display: none;
+    }
+  }
+`;
+
+export const FooterMenu = styled.div`
+  margin: 0 0 20px;
+  @media (min-width: ${Breakpoint.Mobile}) {
+    margin-bottom: 30px;
+  }
+  @media (max-width: 575px) {
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 7px 7px 7px 7px;
+  }
 `;
 
 export const ListUl = styled.ul`
   margin: 20px 0 0;
   display: none;
+  ${(props) =>
+    props.Active &&
+    css`
+      display: block;
+    `}
   @media (min-width: ${Breakpoint.SmallMobile}) {
     display: block;
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, SectionContent } from "../../globalStyles";
 import { Link } from "react-router-dom";
 import {
@@ -35,6 +35,13 @@ import {
 import { IMGLogo } from "../HeaderTop/HeaderTop.elements";
 
 const FooterHome = () => {
+  const [Active, setActive] = useState({ id: null, active: false });
+  const handleActive = (id) => {
+    if (Active.id === id && Active.active) {
+      return setActive({ ...Active, active: false });
+    }
+    return setActive({ id: id, active: true });
+  };
   return (
     <SectionContent>
       <FooterHomeWrap>
@@ -133,10 +140,18 @@ const FooterHome = () => {
                 </div>
                 <div className="col-lg-2 col-md-3 col-sm-3 col-12">
                   <FooterMenu>
-                    <TitleMenu>
-                      Find In Fast <span></span>
+                    <TitleMenu
+                      onClick={() => handleActive(1)}
+                      Active={Active.id === 1 && Active.active ? 1 : 0}
+                    >
+                      Find In Fast
+                      <span>
+                        <svg width="16" height="16" viewBox="0 0 41 64">
+                          <path d="M38.4 26.304q0 0.448-0.384 0.768l-16.64 16.704q-0.32 0.32-0.832 0.32t-0.768-0.32l-16.64-16.704q-0.384-0.32-0.384-0.768t0.384-0.832l1.792-1.792q0.32-0.384 0.768-0.384t0.832 0.384l14.016 14.016 14.080-14.016q0.32-0.384 0.832-0.384t0.768 0.384l1.792 1.792q0.384 0.32 0.384 0.832z"></path>
+                        </svg>
+                      </span>
                     </TitleMenu>
-                    <ListUl>
+                    <ListUl Active={Active.id === 1 && Active.active ? 1 : 0}>
                       <ListLi>
                         <Link to="/">
                           <span>Accessories</span>
@@ -172,10 +187,18 @@ const FooterHome = () => {
                 </div>
                 <div className="col-lg-2 col-md-3 col-sm-3 col-12">
                   <FooterMenu>
-                    <TitleMenu>
-                      Information <span></span>
+                    <TitleMenu
+                      onClick={() => handleActive(2)}
+                      Active={Active.id === 2 && Active.active ? 1 : 0}
+                    >
+                      Information
+                      <span>
+                        <svg width="16" height="16" viewBox="0 0 41 64">
+                          <path d="M38.4 26.304q0 0.448-0.384 0.768l-16.64 16.704q-0.32 0.32-0.832 0.32t-0.768-0.32l-16.64-16.704q-0.384-0.32-0.384-0.768t0.384-0.832l1.792-1.792q0.32-0.384 0.768-0.384t0.832 0.384l14.016 14.016 14.080-14.016q0.32-0.384 0.832-0.384t0.768 0.384l1.792 1.792q0.384 0.32 0.384 0.832z"></path>
+                        </svg>
+                      </span>
                     </TitleMenu>
-                    <ListUl>
+                    <ListUl Active={Active.id === 2 && Active.active ? 1 : 0}>
                       <ListLi>
                         <Link to="/">
                           <span>About Us</span>
@@ -206,10 +229,19 @@ const FooterHome = () => {
                 </div>
                 <div className="col-lg-2 col-md-3 col-sm-3 col-12">
                   <FooterMenu>
-                    <TitleMenu hidden>
-                      Customer Care <span></span>
+                    <TitleMenu
+                      onClick={() => handleActive(3)}
+                      hidden
+                      Active={Active.id === 3 && Active.active ? 1 : 0}
+                    >
+                      Customer Care
+                      <span>
+                        <svg width="16" height="16" viewBox="0 0 41 64">
+                          <path d="M38.4 26.304q0 0.448-0.384 0.768l-16.64 16.704q-0.32 0.32-0.832 0.32t-0.768-0.32l-16.64-16.704q-0.384-0.32-0.384-0.768t0.384-0.832l1.792-1.792q0.32-0.384 0.768-0.384t0.832 0.384l14.016 14.016 14.080-14.016q0.32-0.384 0.832-0.384t0.768 0.384l1.792 1.792q0.384 0.32 0.384 0.832z"></path>
+                        </svg>
+                      </span>
                     </TitleMenu>
-                    <ListUl>
+                    <ListUl Active={Active.id === 3 && Active.active ? 1 : 0}>
                       <ListLi>
                         <Link to="/">
                           <span>Contact Us</span>
@@ -245,10 +277,18 @@ const FooterHome = () => {
                 </div>
                 <div className="col-lg-2 col-md-3 col-sm-3 col-12">
                   <FooterMenu>
-                    <TitleMenu>
-                      In the Spotlight<span></span>
+                    <TitleMenu
+                      onClick={() => handleActive(4)}
+                      Active={Active.id === 4 && Active.active ? 1 : 0}
+                    >
+                      In the Spotlight
+                      <span>
+                        <svg width="16" height="16" viewBox="0 0 41 64">
+                          <path d="M38.4 26.304q0 0.448-0.384 0.768l-16.64 16.704q-0.32 0.32-0.832 0.32t-0.768-0.32l-16.64-16.704q-0.384-0.32-0.384-0.768t0.384-0.832l1.792-1.792q0.32-0.384 0.768-0.384t0.832 0.384l14.016 14.016 14.080-14.016q0.32-0.384 0.832-0.384t0.768 0.384l1.792 1.792q0.384 0.32 0.384 0.832z"></path>
+                        </svg>
+                      </span>
                     </TitleMenu>
-                    <ListUl>
+                    <ListUl Active={Active.id === 4 && Active.active ? 1 : 0}>
                       <ListLi>
                         <Link to="/">
                           <span>Electronics</span>
