@@ -53,6 +53,7 @@ const SpecialProductV2 = (props) => {
               <LinkProductImage to="/">
                 <SpecialProductIMGSide>
                   <ProductImage
+                    src={props.Img[ImageIndex]}
                     data-src={props.Img[ImageIndex]}
                     className="blur-up lazyload"
                   />
@@ -74,7 +75,7 @@ const SpecialProductV2 = (props) => {
                   onClick={() => setImgIndex(props.thumbImg.indexOf(img))}
                 >
                   <ThumbImageSide>
-                    <ProductImage src={img} />
+                    <ProductImage data-src={img} className="blur-up lazyload" />
                   </ThumbImageSide>
                 </ThumbImage>
               );

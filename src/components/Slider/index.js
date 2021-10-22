@@ -52,7 +52,10 @@ const Slider = ({ Sliders }) => {
                   }
                   className="blur-up lazyload"
                 />
-                <IIMGBackgroundCoverMobile src={slide.imgMobile} />
+                <IIMGBackgroundCoverMobile
+                  data-src={slide.imgMobile}
+                  className="blur-up lazyload"
+                />
               </BackgroundCover>
               <SliderContent active={activeSlide === index}>
                 <ContainerTextBox>
