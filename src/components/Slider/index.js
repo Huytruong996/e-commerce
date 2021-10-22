@@ -47,9 +47,10 @@ const Slider = ({ Sliders }) => {
             <SliderWrapper>
               <BackgroundCover active={activeSlide === index}>
                 <IMGBackgroundCover
-                  src={
+                  data-src={
                     require("../../images/sliders/cover/coverSlide.jpg").default
                   }
+                  className="blur-up lazyload"
                 />
                 <IIMGBackgroundCoverMobile src={slide.imgMobile} />
               </BackgroundCover>
@@ -66,7 +67,10 @@ const Slider = ({ Sliders }) => {
                 </ContainerTextBox>
                 <ImageLayerBox>
                   <ImageLayerSlide>
-                    <IMGContent src={slide.img} />
+                    <IMGContent
+                      data-src={slide.img}
+                      className="blur-up lazyload"
+                    />
                   </ImageLayerSlide>
                 </ImageLayerBox>
               </SliderContent>

@@ -3,6 +3,8 @@ import React from "react";
 import "./index.css";
 import "./Grid.scss";
 import App from "./App";
+import "lazysizes";
+
 import GlobalContextProvider from "./context/GlobalContext";
 
 ReactDOM.render(

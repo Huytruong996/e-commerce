@@ -37,7 +37,10 @@ const SpecialProductV1 = (props) => {
             </SpecialOfferText>
             <Link to="/">
               <SpecialProductImageSide>
-                <ProductImage src={props.img}></ProductImage>
+                <ProductImage
+                  data-src={props.img}
+                  className="blur-up lazyload"
+                ></ProductImage>
               </SpecialProductImageSide>
             </Link>
             {props.salePercent && (

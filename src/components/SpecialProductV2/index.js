@@ -52,7 +52,10 @@ const SpecialProductV2 = (props) => {
             <SpecialProductImageWrap>
               <LinkProductImage to="/">
                 <SpecialProductIMGSide>
-                  <ProductImage src={props.Img[ImageIndex]} />
+                  <ProductImage
+                    data-src={props.Img[ImageIndex]}
+                    className="blur-up lazyload"
+                  />
                 </SpecialProductIMGSide>
                 {props.salePercent && (
                   <SpecialProductLabel>

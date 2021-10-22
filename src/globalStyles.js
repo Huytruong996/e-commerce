@@ -74,6 +74,16 @@ button{
     -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+.blur-up{
+  filter: blur(7px);
+  transition: filter .3s;
+}
+.blur-up.lazyloaded{
+  filter: blur(0);
+}
+.lazyload {
+	opacity: 0;
+}
 `;
 
 export const BodyContent = styled.div`

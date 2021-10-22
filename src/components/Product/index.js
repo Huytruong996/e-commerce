@@ -45,7 +45,10 @@ const Product = (props) => {
         <ProductHeader>
           <LinkProductImage to="/">
             <ProductImageSide>
-              <ProductImage src={props.img}></ProductImage>
+              <ProductImage
+                data-src={props.img}
+                className="blur-up lazyload"
+              ></ProductImage>
             </ProductImageSide>
             {props.salePercent && (
               <ProductLabel>

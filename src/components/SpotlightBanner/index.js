@@ -6,7 +6,7 @@ const SpotlightBanner = ({ img }) => {
   return (
     <SpotlightWrapper>
       <LinkBanner to="/">
-        <IMGBanner src={img} />
+        <IMGBanner data-src={img} className="blur-up lazyload" />
       </LinkBanner>
     </SpotlightWrapper>
   );
