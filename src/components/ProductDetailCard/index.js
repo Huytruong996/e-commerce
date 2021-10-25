@@ -73,10 +73,11 @@ const ProductDetailCard = ({ Images }) => {
 
   const checkQuanlity = () => {
     if (
+      quanlity <= 0 ||
       quanlity === "" ||
-      !isNaN(valueInput) ||
-      valueInput === null ||
-      valueInput === ""
+      !isNaN(quanlity) ||
+      quanlity === null ||
+      quanlity === ""
     ) {
       return setQuanlity(1);
     }
