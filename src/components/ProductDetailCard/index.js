@@ -72,7 +72,12 @@ const ProductDetailCard = ({ Images }) => {
   };
 
   const checkQuanlity = () => {
-    if (quanlity === "") {
+    if (
+      quanlity === "" ||
+      !isNaN(valueInput) ||
+      valueInput === null ||
+      valueInput === ""
+    ) {
       return setQuanlity(1);
     }
   };
