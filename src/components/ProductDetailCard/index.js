@@ -75,7 +75,7 @@ const ProductDetailCard = ({ Images }) => {
     if (
       quanlity <= 0 ||
       quanlity === "" ||
-      !isNaN(quanlity) ||
+      isNaN(quanlity) ||
       quanlity === null ||
       quanlity === ""
     ) {
