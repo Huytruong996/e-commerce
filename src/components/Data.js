@@ -7,3 +7,4 @@ export { default as SLiderData } from "./Slider/Data.js";
 export { default as ProductSectionV2Data } from "./ProductSectionV2/Data.js";
 export { default as ProductSectionV1Data } from "./ProductSectionV1/Data.js";
 export { default as ProductGridSectionV1Data } from "./ProductGridSectionV1/Data.js";
+export { default as ProductDetailData } from "./ProductDetailCard/Data.js";

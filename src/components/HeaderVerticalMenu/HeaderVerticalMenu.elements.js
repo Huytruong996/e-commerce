@@ -11,7 +11,12 @@ export const CategoriesVerticalMenu = styled.div`
 
 export const CategoriesTitle = styled.h3`
   line-height: 55px;
-  border-radius: 6px 6px 0 0;
+  border-radius: 10px 10px 10px 10px;
+  ${(props) =>
+    props.Home &&
+    css`
+      border-radius: 6px 6px 0 0;
+    `}
   position: relative;
   background: #fed700;
   color: #333e48;
@@ -63,11 +68,19 @@ export const VerticalMenu = styled.div`
   background: #fff;
   z-index: 9999;
   width: 100%;
-  opacity: 1;
-  visibility: visible;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
   border-radius: 0 0 6px 6px;
   box-shadow: 0 0 10px 1px hsl(0deg 0% 56% / 10%);
   transition: all 0.35s ease 0s;
+  ${(props) =>
+    props.Home &&
+    css`
+      opacity: 1;
+      visibility: visible;
+      display: block;
+    `}
   ${(props) =>
     props.isSticky
       ? css`

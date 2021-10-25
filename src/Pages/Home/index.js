@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import {
   HeaderTop,
-  TopBar,
   HeaderMenu,
   Slider,
   HomeBanner,
@@ -12,14 +11,12 @@ import {
 } from "../../components";
 import {
   HeaderTopData,
-  TopBarData,
   SLiderData,
   ProductSectionV1Data,
   ProductSectionV2Data,
   ProductGridSectionV1Data,
   HeaderVerticalMenuData,
 } from "../../components/Data";
-import FooterHome from "../../components/Footer";
 import MenuMobile from "../../components/MenuMobile";
 import { GlobalContext } from "../../context/GlobalContext";
 import { BodyContent } from "../../globalStyles";
@@ -34,10 +31,9 @@ const HomePage = ({ opened }) => {
 
   return (
     <React.Fragment>
-      <TopBar {...TopBarData} />
       <header ref={headerRef}>
         <HeaderTop {...HeaderTopData} isSticky={isSticky} />
-        <HeaderMenu isSticky={isSticky} />
+        <HeaderMenu Home isSticky={isSticky} />
         <MenuMobile {...HeaderVerticalMenuData} opened={opened} />
         <ShopifySectionMobile />
       </header>
@@ -57,7 +53,6 @@ const HomePage = ({ opened }) => {
           }
         />
         <ProductGridSectionV1 {...ProductGridSectionV1Data} />
-        <FooterHome />
       </BodyContent>
     </React.Fragment>
   );

@@ -21,15 +21,15 @@ import {
   VerticalMenu,
 } from "./HeaderVerticalMenu.elements";
 
-const HeaderVerticalMenu = ({ itemMenus, isSticky }) => {
+const HeaderVerticalMenu = ({ Home, itemMenus, isSticky }) => {
   return (
     <HeaderVerticalMenuWrapper>
       <CategoriesVerticalMenu>
-        <CategoriesTitle>
+        <CategoriesTitle Home={Home}>
           <IconBar />
           All Departments
         </CategoriesTitle>
-        <VerticalMenu isSticky={isSticky}>
+        <VerticalMenu Home={Home} isSticky={isSticky}>
           <UlVerticalMenu>
             <LiVerticalMenu>
               <ItemlMenu to="/"> Best Seller</ItemlMenu>

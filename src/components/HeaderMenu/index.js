@@ -14,11 +14,15 @@ import {
   HeaderMenuRightWrapper,
 } from "./HeaderMenu.element";
 
-const HeaderMenu = ({ isSticky }) => {
+const HeaderMenu = ({ Home, isSticky }) => {
   return (
     <HeaderMenuContainer>
       <HeaderMenuLeftWrapper>
-        <HeaderVerticalMenu {...HeaderVerticalMenuData} isSticky={isSticky} />
+        <HeaderVerticalMenu
+          Home={Home}
+          {...HeaderVerticalMenuData}
+          isSticky={isSticky}
+        />
         <HeaderHorizontalMenu {...HeaderHorizontalMenuData} />
       </HeaderMenuLeftWrapper>
       {/* <HeaderMenuRightWrapper>
