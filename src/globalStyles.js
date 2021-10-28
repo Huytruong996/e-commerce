@@ -156,10 +156,18 @@ export const elementorColumn = styled.div`
 `;
 
 export const SectionContent = styled.div`
+  position: relative;
   margin: 0 auto;
   clear: both;
   display: block;
   width: 100%;
+`;
+
+export const DetailProductWrap = styled.div`
+  background: #eff0f5;
+  padding: 0;
+  max-width: 100%;
+  margin: 10px 0;
 `;
 
 export const RowResponsive = styled.div`

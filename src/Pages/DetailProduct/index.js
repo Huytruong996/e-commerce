@@ -1,17 +1,25 @@
 import React from "react";
 import { HeaderMenu, HeaderTop } from "../../components";
+import BreadCrumb from "../../components/BreadCrumb";
 import { HeaderTopData } from "../../components/Data";
+import DetailDescription from "../../components/DetailDesciption";
 import ProductDetailCard from "../../components/ProductDetailCard";
-import { Container } from "../../globalStyles";
+import ProductReview from "../../components/ProductReview";
+import { Container, DetailProductWrap } from "../../globalStyles";
 
 const DetailProduct = ({ DetailProduct }) => {
   return (
     <div>
       <HeaderTop {...HeaderTopData} />
       <HeaderMenu />
-      <Container>
-        <ProductDetailCard {...DetailProduct} />
-      </Container>
+      <DetailProductWrap>
+        <Container>
+          <BreadCrumb />
+          <ProductDetailCard {...DetailProduct} />
+          <DetailDescription />
+          <ProductReview />
+        </Container>
+      </DetailProductWrap>
     </div>
   );
 };

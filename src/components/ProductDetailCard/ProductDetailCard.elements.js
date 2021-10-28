@@ -1,8 +1,11 @@
 import styled, { css } from "styled-components";
+import { Breakpoint } from "../../globalStyles";
 
 export const ContentWrap = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  background: #ffff;
 `;
 
 export const ThumbImageContent = styled.div`
@@ -176,7 +179,7 @@ export const ContentPriceWrap = styled.div`
 
 export const ContentPrice = styled.div`
   padding: 15px 20px;
-  background: #fafafa;
+  background: #f8f8f8;
   flex-wrap: wrap;
   display: flex;
   flex-basis: 625px;
@@ -194,12 +197,16 @@ export const PriceSale = styled.div`
 export const PriceSell = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap-reverse;
 `;
 
 export const Price = styled.div`
   font-size: 1.875rem;
   font-weight: 500;
   color: #fed700;
+  @media (max-width: 992px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const PercentSale = styled.div`
@@ -274,6 +281,7 @@ export const OptionContent = styled.div`
   margin-bottom: 8px;
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
 `;
 
 export const OptionMain = styled.div`
@@ -281,10 +289,12 @@ export const OptionMain = styled.div`
   flex-basis: 32.1875rem;
   max-width: 32.1875rem;
   flex-wrap: wrap;
+  overflow: hidden;
 `;
 
 export const OptionProduct = styled.button`
   min-width: 5rem;
+  max-width: 10rem;
   min-height: 2.125rem;
   padding: 0.25rem 0.75rem;
   margin: 0 8px 8px 0;
@@ -296,10 +306,14 @@ export const OptionProduct = styled.button`
   background: #fff;
   outline: 0;
   word-break: break-word;
+  word-wrap: break-word;
+  overflow: hidden;
+  flex: auto;
 `;
 
 export const OtionQuanlity = styled.div`
   display: flex;
+  flex-wrap: wrap;
   color: #757575;
   align-items: center;
   margin-top: 8px;
@@ -365,7 +379,7 @@ export const ButtonIncrease = styled.button``;
 export const InputQuanlity = styled.input``;
 
 export const ContentFooter = styled.div`
-  margin-top: 15px;
+  margin: 15px 0;
 `;
 
 export const ContentFooterWrap = styled.div`
@@ -374,6 +388,7 @@ export const ContentFooterWrap = styled.div`
 
 export const ContentFooterInner = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Button = styled.button`
@@ -416,8 +431,16 @@ export const AddToCart = styled(Button)`
   }
   display: flex;
   flex-direction: row;
+  @media (max-width: 992px) {
+    flex: 1;
+    margin-top: 10px;
+  }
 `;
 export const BuyProduct = styled(Button)`
   color: #333e48;
   background: #fed700;
+  @media (max-width: 992px) {
+    flex: 1;
+    margin-top: 10px;
+  }
 `;
