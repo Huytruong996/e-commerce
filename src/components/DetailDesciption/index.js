@@ -24,7 +24,11 @@ const DetailDescription = () => {
   return (
     <DetailDescriptionWrap>
       <TitleContent>Mô tả sản phẩm</TitleContent>
-      <ContentWrap className={viewMore ? "" : "limit"}>
+      <ContentWrap
+        className={
+          viewMore ? " blur-up lazyload " : " limit  blur-up lazyload "
+        }
+      >
         <ContentHighLight>
           <ul>
             <li>

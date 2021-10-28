@@ -8,6 +8,7 @@ export const DetailDescriptionWrap = styled(SectionContent)`
 
   .limit {
     height: 768px;
+    filter: none;
     &:after {
       content: "";
       height: 100px;

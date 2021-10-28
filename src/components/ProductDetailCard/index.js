@@ -100,7 +100,10 @@ const ProductDetailCard = ({ Images }) => {
       <ContentWrap>
         <ThumbImageContent className="col-12 col-xl-4 col-lg-4 col-md-12">
           <ThumbImageInner>
-            <MainImage src={Images[ImageId]}></MainImage>
+            <MainImage
+              src={Images[ImageId]}
+              className="blur-up lazyload"
+            ></MainImage>
             <SlideThumbs>
               <Swiper
                 cssMode={true}
@@ -112,7 +115,10 @@ const ProductDetailCard = ({ Images }) => {
                   Images.map((Image, index) => (
                     <SwiperSlide key={index}>
                       <ItemThumb onMouseOver={() => setImageId(index)}>
-                        <ImageThumb src={Image}></ImageThumb>
+                        <ImageThumb
+                          src={Image}
+                          className="blur-up lazyload"
+                        ></ImageThumb>
                         <BorderThumb
                           active={ImageId === index ? 1 : 0}
                         ></BorderThumb>

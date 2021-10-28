@@ -92,7 +92,10 @@ const ProductReview = () => {
                         </g>
                       </svg>
                     </Placeholder>
-                    <IMGAvatar src="https://cf.shopee.vn/file/b4ac3f0575b2e11cfa528439f6abcfbb_tn"></IMGAvatar>
+                    <IMGAvatar
+                      className=" blur-up lazyload "
+                      src="https://cf.shopee.vn/file/b4ac3f0575b2e11cfa528439f6abcfbb_tn"
+                    ></IMGAvatar>
                   </Avatar>
                 </CommentAvatar>
                 <CommentMain>
@@ -201,6 +204,7 @@ const ProductReview = () => {
                               require("../../images/Products/Special/thumb/Thumb1/1_540x.jpg")
                                 .default
                             }
+                            className=" blur-up lazyload "
                           ></MediaContent>
                         </MediaWrap>
                       </Media>
@@ -292,6 +296,7 @@ const ProductReview = () => {
                               require("../../images/Products/Special/thumb/Thumb1/3_540x.jpg")
                                 .default
                             }
+                            className=" blur-up lazyload "
                           ></MediaContent>
                         </MediaWrap>
                       </Media>
@@ -383,6 +388,7 @@ const ProductReview = () => {
                               require("../../images/Products/Special/thumb/Thumb1/1_540x.jpg")
                                 .default
                             }
+                            className=" blur-up lazyload "
                           ></MediaContent>
                         </MediaWrap>
                       </Media>
@@ -474,6 +480,7 @@ const ProductReview = () => {
                               require("../../images/Products/Special/thumb/Thumb1/1_540x.jpg")
                                 .default
                             }
+                            className=" blur-up lazyload "
                           ></MediaContent>
                         </MediaWrap>
                       </Media>
@@ -565,6 +572,7 @@ const ProductReview = () => {
                               require("../../images/Products/Special/thumb/Thumb1/1_540x.jpg")
                                 .default
                             }
+                            className=" blur-up lazyload "
                           ></MediaContent>
                         </MediaWrap>
                       </Media>
