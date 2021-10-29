@@ -1,28 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Comment from "../Comment";
+import Loading from "../Loading";
+import PaginationSection from "../Pagination";
 import StarRateSection from "../StarRateSection";
+import ProductReviewData from "./Data";
 import {
-  Avatar,
-  CommentAuthorName,
-  CommentAvatar,
-  CommentContent,
   CommentList,
-  CommentMain,
-  CommentMedia,
-  CommentMediaContainer,
   CommentProduct,
-  CommentTime,
   CommentWrap,
-  IMGAvatar,
-  Media,
-  MediaContent,
-  MediaPlaceholder,
-  MediaWrap,
-  OrderVariation,
   OverviewFilter,
   PaginationList,
-  PersonalRating,
-  Placeholder,
   ProductReviewContainer,
   ProductReviewWrap,
   RatingBriefing,
@@ -37,6 +24,29 @@ import {
 } from "./ProductReview.elements";
 
 const ProductReview = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reviewPerPage, setreviewPerPage] = useState(5);
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [totalPage, setTotalPage] = useState();
+
+  const indexOfLast = currentPage * reviewPerPage;
+  const indexOfFirst = indexOfLast - reviewPerPage;
+  const currentReview = reviews.slice(indexOfFirst, indexOfLast);
+  useEffect(() => {
+    const fetchReviews = async () => {
+      setLoading(true);
+      const res = await ProductReviewData();
+      setReviews(res);
+      setTotalPage(Math.ceil(res.length / reviewPerPage));
+      setLoading(false);
+    };
+    fetchReviews();
+  }, []);
+  console.log(currentReview);
+  const handleChangePage = (event, value) => {
+    setCurrentPage(value);
+  };
   return (
     <ProductReviewWrap>
       <ProductReviewContainer>
@@ -65,525 +75,22 @@ const ProductReview = () => {
         <ReviewList>
           <CommentList>
             <CommentProduct>
-              <CommentWrap>
-                <CommentAvatar>
-                  <Avatar>
-                    <Placeholder>
-                      <svg
-                        enableBackground="new 0 0 15 15"
-                        viewBox="0 0 15 15"
-                        x="0"
-                        y="0"
-                      >
-                        <g>
-                          <circle
-                            cx="7.5"
-                            cy="4.5"
-                            fill="none"
-                            r="3.8"
-                            strokeMiterlimit="10"
-                          ></circle>
-                          <path
-                            d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeMiterlimit="10"
-                          ></path>
-                        </g>
-                      </svg>
-                    </Placeholder>
-                    <IMGAvatar
-                      className=" blur-up lazyload "
-                      src="https://cf.shopee.vn/file/b4ac3f0575b2e11cfa528439f6abcfbb_tn"
-                    ></IMGAvatar>
-                  </Avatar>
-                </CommentAvatar>
-                <CommentMain>
-                  <CommentAuthorName>yumez</CommentAuthorName>
-                  <PersonalRating>
-                    <StarRateSection />
-                  </PersonalRating>
-                  <OrderVariation>
-                    Phân loại hàng: VN.N95 4 lớp (10cái)
-                  </OrderVariation>
-                  <CommentContent>
-                    Do dịch bệnh nên tgian giao hàng khá lâu. Sản phẩm cũng tạm
-                    đc. Tuy nhiên mình thấy hình ảnh của shop đăng và sản phẩm
-                    nhận được bên ngoài có vẻ khác nhau. Nên không biết là có
-                    đúng hàng chuẩn không. Hy vọng đc nghe giải thích. Và nếu
-                    hàng bên mình chuẩnthì shop hãy để ảnh thật đi ạ. Tránh hiểu
-                    lầm
-                  </CommentContent>
-                  <CommentMedia>
-                    <CommentMediaContainer>
-                      <Media>
-                        <MediaWrap>
-                          <MediaPlaceholder>
-                            <svg
-                              enableBackground="new 0 0 15 15"
-                              viewBox="0 0 15 15"
-                              x="0"
-                              y="0"
-                            >
-                              <g>
-                                <rect
-                                  fill="none"
-                                  height="8"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="10"
-                                  x="1"
-                                  y="4.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="6.5"
-                                  y2="6.5"
-                                ></line>
-                                <rect
-                                  fill="none"
-                                  height="3"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="3"
-                                  x="11"
-                                  y="6.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="14.5"
-                                  y2="14.5"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="6"
-                                  x2="6"
-                                  y1=".5"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="3.5"
-                                  x2="3.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="8.5"
-                                  x2="8.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                              </g>
-                            </svg>
-                          </MediaPlaceholder>
-                          <MediaContent
-                            src={
-                              require("../../images/Products/Special/thumb/Thumb1/1_540x.jpg")
-                                .default
-                            }
-                            className=" blur-up lazyload "
-                          ></MediaContent>
-                        </MediaWrap>
-                      </Media>
-                      <Media>
-                        <MediaWrap>
-                          <MediaPlaceholder>
-                            <svg
-                              enableBackground="new 0 0 15 15"
-                              viewBox="0 0 15 15"
-                              x="0"
-                              y="0"
-                            >
-                              <g>
-                                <rect
-                                  fill="none"
-                                  height="8"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="10"
-                                  x="1"
-                                  y="4.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="6.5"
-                                  y2="6.5"
-                                ></line>
-                                <rect
-                                  fill="none"
-                                  height="3"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="3"
-                                  x="11"
-                                  y="6.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="14.5"
-                                  y2="14.5"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="6"
-                                  x2="6"
-                                  y1=".5"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="3.5"
-                                  x2="3.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="8.5"
-                                  x2="8.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                              </g>
-                            </svg>
-                          </MediaPlaceholder>
-                          <MediaContent
-                            src={
-                              require("../../images/Products/Special/thumb/Thumb1/3_540x.jpg")
-                                .default
-                            }
-                            className=" blur-up lazyload "
-                          ></MediaContent>
-                        </MediaWrap>
-                      </Media>
-                      <Media>
-                        <MediaWrap>
-                          <MediaPlaceholder>
-                            <svg
-                              enableBackground="new 0 0 15 15"
-                              viewBox="0 0 15 15"
-                              x="0"
-                              y="0"
-                            >
-                              <g>
-                                <rect
-                                  fill="none"
-                                  height="8"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="10"
-                                  x="1"
-                                  y="4.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="6.5"
-                                  y2="6.5"
-                                ></line>
-                                <rect
-                                  fill="none"
-                                  height="3"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="3"
-                                  x="11"
-                                  y="6.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="14.5"
-                                  y2="14.5"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="6"
-                                  x2="6"
-                                  y1=".5"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="3.5"
-                                  x2="3.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="8.5"
-                                  x2="8.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                              </g>
-                            </svg>
-                          </MediaPlaceholder>
-                          <MediaContent
-                            src={
-                              require("../../images/Products/Special/thumb/Thumb1/1_540x.jpg")
-                                .default
-                            }
-                            className=" blur-up lazyload "
-                          ></MediaContent>
-                        </MediaWrap>
-                      </Media>
-                      <Media>
-                        <MediaWrap>
-                          <MediaPlaceholder>
-                            <svg
-                              enableBackground="new 0 0 15 15"
-                              viewBox="0 0 15 15"
-                              x="0"
-                              y="0"
-                            >
-                              <g>
-                                <rect
-                                  fill="none"
-                                  height="8"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="10"
-                                  x="1"
-                                  y="4.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="6.5"
-                                  y2="6.5"
-                                ></line>
-                                <rect
-                                  fill="none"
-                                  height="3"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="3"
-                                  x="11"
-                                  y="6.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="14.5"
-                                  y2="14.5"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="6"
-                                  x2="6"
-                                  y1=".5"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="3.5"
-                                  x2="3.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="8.5"
-                                  x2="8.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                              </g>
-                            </svg>
-                          </MediaPlaceholder>
-                          <MediaContent
-                            src={
-                              require("../../images/Products/Special/thumb/Thumb1/1_540x.jpg")
-                                .default
-                            }
-                            className=" blur-up lazyload "
-                          ></MediaContent>
-                        </MediaWrap>
-                      </Media>
-                      <Media>
-                        <MediaWrap>
-                          <MediaPlaceholder>
-                            <svg
-                              enableBackground="new 0 0 15 15"
-                              viewBox="0 0 15 15"
-                              x="0"
-                              y="0"
-                            >
-                              <g>
-                                <rect
-                                  fill="none"
-                                  height="8"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="10"
-                                  x="1"
-                                  y="4.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="6.5"
-                                  y2="6.5"
-                                ></line>
-                                <rect
-                                  fill="none"
-                                  height="3"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  width="3"
-                                  x="11"
-                                  y="6.5"
-                                ></rect>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="1"
-                                  x2="11"
-                                  y1="14.5"
-                                  y2="14.5"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="6"
-                                  x2="6"
-                                  y1=".5"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="3.5"
-                                  x2="3.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                                <line
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeMiterlimit="10"
-                                  x1="8.5"
-                                  x2="8.5"
-                                  y1="1"
-                                  y2="3"
-                                ></line>
-                              </g>
-                            </svg>
-                          </MediaPlaceholder>
-                          <MediaContent
-                            src={
-                              require("../../images/Products/Special/thumb/Thumb1/1_540x.jpg")
-                                .default
-                            }
-                            className=" blur-up lazyload "
-                          ></MediaContent>
-                        </MediaWrap>
-                      </Media>
-                    </CommentMediaContainer>
-                  </CommentMedia>
-                  <CommentTime>2021-10-23 01:30</CommentTime>
-                </CommentMain>
-              </CommentWrap>
+              {loading ? (
+                <Loading />
+              ) : (
+                currentReview &&
+                currentReview.map((data, index) => {
+                  return <Comment data={data} key={index} />;
+                })
+              )}
             </CommentProduct>
           </CommentList>
-          <PaginationList></PaginationList>
+          <PaginationList>
+            <PaginationSection
+              totalPage={totalPage}
+              handleChangePage={handleChangePage}
+            />
+          </PaginationList>
         </ReviewList>
       </ProductReviewContainer>
     </ProductReviewWrap>

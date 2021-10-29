@@ -17,7 +17,7 @@ function App() {
       <GlobalStyle opened={opened} />
       <TopBar {...TopBarData} />
       {/* <HomePage opened={opened} /> */}
-      <DetailProduct {...ProductDetailData} />
+      <DetailProduct {...ProductDetailData} opened={opened} />
       <FooterHome />
     </HashRouter>
   );

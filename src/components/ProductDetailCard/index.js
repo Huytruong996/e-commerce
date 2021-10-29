@@ -50,12 +50,12 @@ import {
 } from "./ProductDetailCard.elements";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Keyboard, Pagination, Autoplay, Navigation } from "swiper";
+import SwiperCore, { Navigation } from "swiper";
 import StarRateSection from "../StarRateSection";
 import { SectionContent } from "../../globalStyles";
 
 const ProductDetailCard = ({ Images }) => {
-  SwiperCore.use([Keyboard, Pagination, Autoplay, Navigation]);
+  SwiperCore.use([Navigation]);
   const [quanlity, setQuanlity] = useState(1);
   const [ImageId, setImageId] = useState(0);
   const handleChangeQuanlity = (e) => {
