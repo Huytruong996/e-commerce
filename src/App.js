@@ -1,7 +1,7 @@
 import "./App.css";
 import GlobalStyle from "./globalStyles";
 import React, { useContext } from "react";
-import { HashRouter } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import HomePage from "./Pages/Home";
 import { GlobalContext } from "./context/GlobalContext";
 import DetailProduct from "./Pages/DetailProduct";
@@ -16,8 +16,16 @@ function App() {
     <HashRouter>
       <GlobalStyle opened={opened} />
       <TopBar {...TopBarData} />
-      {/* <HomePage opened={opened} /> */}
-      <DetailProduct {...ProductDetailData} opened={opened} />
+      <Switch>
+        <Route exact path="/" render={() => <HomePage opened={opened} />} />
+        <Route
+          exact
+          path="/:name"
+          render={() => (
+            <DetailProduct {...ProductDetailData} opened={opened} />
+          )}
+        />
+      </Switch>
       <FooterHome />
     </HashRouter>
   );
