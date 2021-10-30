@@ -28,9 +28,7 @@ import {
   SearchSubmit,
 } from "./HeaderTop.elements";
 import { Link } from "react-router-dom";
-import { GlobalContext } from "../../context/GlobalContext";
-import { HeaderVerticalMenuData } from "../Data";
-import MenuMobile from "../MenuMobile";
+
 const HeaderTop = ({
   img,
   alt,
@@ -41,8 +39,6 @@ const HeaderTop = ({
   isSticky,
   handleToggle,
 }) => {
-  const { opened, ToggleMenuMbDispatch } = useContext(GlobalContext);
-
   return (
     <HeaderWrapTop isSticky={isSticky}>
       <HeaderTopContainer>

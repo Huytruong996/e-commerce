@@ -21,7 +21,6 @@ import {
 } from "./Comment.elements";
 
 const Comment = ({ data }) => {
-  console.log(data);
   return (
     <CommentWrap>
       <CommentAvatar>

@@ -21,18 +21,9 @@ import MenuMobile from "../../components/MenuMobile";
 import { GlobalContext } from "../../context/GlobalContext";
 import { BodyContent } from "../../globalStyles";
 import StickyHeader from "../../helper/StickyHeader";
-const HomePage = ({ opened }) => {
+const HomePage = ({ opened, handleToggle }) => {
   const { headerRef, isSticky } = StickyHeader();
-  const { ToggleMenuMbDispatch } = useContext(GlobalContext);
 
-  const handleToggleNavMobile = async () => {
-    // if (opened) await ToggleMenuMbDispatch({ payload: { opened: !opened } });
-    setValue(false);
-  };
-  const [value, setValue] = useState(false);
-  const handleToggle = () => {
-    setValue(!value);
-  };
   return (
     <React.Fragment>
       <header ref={headerRef}>
@@ -42,10 +33,10 @@ const HomePage = ({ opened }) => {
           handleToggle={handleToggle}
         />
         <HeaderMenu Home isSticky={isSticky} />
-        <MenuMobile {...HeaderVerticalMenuData} opened={value} />
+        <MenuMobile {...HeaderVerticalMenuData} opened={opened} />
         <ShopifySectionMobile />
       </header>
-      <BodyContent opened={value} onClick={handleToggleNavMobile}>
+      <BodyContent opened={opened} onClick={handleToggle}>
         <Slider {...SLiderData} />
         <HomeBanner
           img={

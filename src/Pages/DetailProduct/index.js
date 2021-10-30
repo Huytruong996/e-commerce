@@ -15,21 +15,21 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { BodyContent, Container, DetailProductWrap } from "../../globalStyles";
 import StickyHeader from "../../helper/StickyHeader";
 
-const DetailProduct = ({ DetailProduct, opened }) => {
+const DetailProduct = ({ DetailProduct, opened, handleToggle }) => {
   const { headerRef, isSticky } = StickyHeader();
-  const { ToggleMenuMbDispatch } = useContext(GlobalContext);
-  const handleToggleNavMobile = async () => {
-    if (opened) await ToggleMenuMbDispatch({ payload: { opened: !opened } });
-  };
   return (
     <div>
       <header ref={headerRef}>
-        <HeaderTop {...HeaderTopData} isSticky={isSticky} />
+        <HeaderTop
+          {...HeaderTopData}
+          isSticky={isSticky}
+          handleToggle={handleToggle}
+        />
         <HeaderMenu isSticky={isSticky} />
         <MenuMobile {...HeaderVerticalMenuData} opened={opened} />
         <ShopifySectionMobile />
       </header>
-      <BodyContent opened={opened} onClick={handleToggleNavMobile}>
+      <BodyContent opened={opened} onClick={handleToggle}>
         <DetailProductWrap>
           <Container>
             <BreadCrumb />

@@ -43,7 +43,6 @@ const ProductReview = () => {
     };
     fetchReviews();
   }, []);
-  console.log(currentReview);
   const handleChangePage = (event, value) => {
     setCurrentPage(value);
   };
