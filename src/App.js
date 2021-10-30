@@ -14,6 +14,9 @@ function App() {
   const handleToggle = () => {
     setValue(!value);
   };
+  const handleToggleBody = () => {
+    if (value) setValue(false);
+  };
   return (
     <HashRouter>
       <GlobalStyle opened={value} />
@@ -22,7 +25,13 @@ function App() {
         <Route
           exact
           path="/"
-          render={() => <HomePage opened={value} handleToggle={handleToggle} />}
+          render={() => (
+            <HomePage
+              opened={value}
+              handleToggle={handleToggle}
+              handleToggleBody={handleToggleBody}
+            />
+          )}
         />
         <Route
           exact
@@ -32,6 +41,7 @@ function App() {
               {...ProductDetailData}
               opened={value}
               handleToggle={handleToggle}
+              handleToggleBody={handleToggleBody}
             />
           )}
         />

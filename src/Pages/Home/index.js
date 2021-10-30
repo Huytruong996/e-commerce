@@ -21,7 +21,7 @@ import MenuMobile from "../../components/MenuMobile";
 import { GlobalContext } from "../../context/GlobalContext";
 import { BodyContent } from "../../globalStyles";
 import StickyHeader from "../../helper/StickyHeader";
-const HomePage = ({ opened, handleToggle }) => {
+const HomePage = ({ opened, handleToggle, handleToggleBody }) => {
   const { headerRef, isSticky } = StickyHeader();
 
   return (
@@ -36,7 +36,7 @@ const HomePage = ({ opened, handleToggle }) => {
         <MenuMobile {...HeaderVerticalMenuData} opened={opened} />
         <ShopifySectionMobile />
       </header>
-      <BodyContent opened={opened} onClick={handleToggle}>
+      <BodyContent opened={opened} onClick={handleToggleBody}>
         <Slider {...SLiderData} />
         <HomeBanner
           img={

@@ -11,11 +11,15 @@ import MenuMobile from "../../components/MenuMobile";
 import ProductDetailCard from "../../components/ProductDetailCard";
 import ProductReview from "../../components/ProductReview";
 import SuggestProduct from "../../components/SuggestProduct";
-import { GlobalContext } from "../../context/GlobalContext";
 import { BodyContent, Container, DetailProductWrap } from "../../globalStyles";
 import StickyHeader from "../../helper/StickyHeader";
 
-const DetailProduct = ({ DetailProduct, opened, handleToggle }) => {
+const DetailProduct = ({
+  DetailProduct,
+  opened,
+  handleToggle,
+  handleToggleBody,
+}) => {
   const { headerRef, isSticky } = StickyHeader();
   return (
     <div>
@@ -29,7 +33,7 @@ const DetailProduct = ({ DetailProduct, opened, handleToggle }) => {
         <MenuMobile {...HeaderVerticalMenuData} opened={opened} />
         <ShopifySectionMobile />
       </header>
-      <BodyContent opened={opened} onClick={handleToggle}>
+      <BodyContent opened={opened} onClick={handleToggleBody}>
         <DetailProductWrap>
           <Container>
             <BreadCrumb />
