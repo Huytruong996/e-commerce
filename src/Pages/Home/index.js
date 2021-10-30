@@ -18,8 +18,6 @@ import {
   HeaderVerticalMenuData,
 } from "../../components/Data";
 import MenuMobile from "../../components/MenuMobile";
-import { GlobalContext } from "../../context/GlobalContext";
-import { BodyContent } from "../../globalStyles";
 import StickyHeader from "../../helper/StickyHeader";
 const HomePage = ({ opened, handleToggle, handleToggleBody }) => {
   const { headerRef, isSticky } = StickyHeader();
@@ -33,26 +31,23 @@ const HomePage = ({ opened, handleToggle, handleToggleBody }) => {
           handleToggle={handleToggle}
         />
         <HeaderMenu Home isSticky={isSticky} />
-        <MenuMobile {...HeaderVerticalMenuData} opened={opened} />
         <ShopifySectionMobile />
       </header>
-      <BodyContent opened={opened} onClick={handleToggleBody}>
-        <Slider {...SLiderData} />
-        <HomeBanner
-          img={
-            require("../../images/SpotLightBanner/spotlightbanner.jpg").default
-          }
-        />
-        <ProductSecionV1 {...ProductSectionV1Data} />
-        <ProductSectionV2 {...ProductSectionV2Data} />
-        <HomeBanner
-          img={
-            require("../../images/SpotLightBanner/home-v5-banner_1920x.png")
-              .default
-          }
-        />
-        <ProductGridSectionV1 {...ProductGridSectionV1Data} />
-      </BodyContent>
+      <Slider {...SLiderData} />
+      <HomeBanner
+        img={
+          require("../../images/SpotLightBanner/spotlightbanner.jpg").default
+        }
+      />
+      <ProductSecionV1 {...ProductSectionV1Data} />
+      <ProductSectionV2 {...ProductSectionV2Data} />
+      <HomeBanner
+        img={
+          require("../../images/SpotLightBanner/home-v5-banner_1920x.png")
+            .default
+        }
+      />
+      <ProductGridSectionV1 {...ProductGridSectionV1Data} />
     </React.Fragment>
   );
 };

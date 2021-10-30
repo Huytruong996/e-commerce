@@ -11,41 +11,30 @@ import MenuMobile from "../../components/MenuMobile";
 import ProductDetailCard from "../../components/ProductDetailCard";
 import ProductReview from "../../components/ProductReview";
 import SuggestProduct from "../../components/SuggestProduct";
-import { BodyContent, Container, DetailProductWrap } from "../../globalStyles";
+import { Container, DetailProductWrap } from "../../globalStyles";
 import StickyHeader from "../../helper/StickyHeader";
 
-const DetailProduct = ({
-  DetailProduct,
-  opened,
-  handleToggle,
-  handleToggleBody,
-}) => {
+const DetailProduct = ({ DetailProduct }) => {
   const { headerRef, isSticky } = StickyHeader();
   return (
     <div>
       <header ref={headerRef}>
-        <HeaderTop
-          {...HeaderTopData}
-          isSticky={isSticky}
-          handleToggle={handleToggle}
-        />
+        <HeaderTop {...HeaderTopData} isSticky={isSticky} />
         <HeaderMenu isSticky={isSticky} />
-        <MenuMobile {...HeaderVerticalMenuData} opened={opened} />
         <ShopifySectionMobile />
       </header>
-      <BodyContent opened={opened} onClick={handleToggleBody}>
-        <DetailProductWrap>
-          <Container>
-            <BreadCrumb />
-            <ProductDetailCard {...DetailProduct} />
-            <DetailDescription />
-            <ProductReview />
-          </Container>
-        </DetailProductWrap>
+
+      <DetailProductWrap>
         <Container>
-          <SuggestProduct {...ProductGridSectionV1Data} />
+          <BreadCrumb />
+          <ProductDetailCard {...DetailProduct} />
+          <DetailDescription />
+          <ProductReview />
         </Container>
-      </BodyContent>
+      </DetailProductWrap>
+      <Container>
+        <SuggestProduct {...ProductGridSectionV1Data} />
+      </Container>
     </div>
   );
 };

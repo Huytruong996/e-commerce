@@ -1,6 +1,21 @@
 import styled, { css, keyframes } from "styled-components";
 import { Breakpoint, Container, Row } from "../../globalStyles";
 
+export const BackgroundFade = styled.div`
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 37, 41, 0.6);
+  top: 0;
+  display: none;
+  ${(props) =>
+    props.opened &&
+    css`
+      display: block;
+    `}
+`;
+
 const hvrIconBob = keyframes`
 0%{
   transform:translateY(-8px)
