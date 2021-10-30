@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import {
   CartIconMobile,
@@ -29,7 +29,8 @@ import {
 } from "./HeaderTop.elements";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
-
+import { HeaderVerticalMenuData } from "../Data";
+import MenuMobile from "../MenuMobile";
 const HeaderTop = ({
   img,
   alt,
@@ -38,18 +39,15 @@ const HeaderTop = ({
   WishListLink,
   CartLink,
   isSticky,
+  handleToggle,
 }) => {
   const { opened, ToggleMenuMbDispatch } = useContext(GlobalContext);
-
-  const handleToggleNavMobile = async () => {
-    await ToggleMenuMbDispatch({ payload: { opened: !opened } });
-  };
 
   return (
     <HeaderWrapTop isSticky={isSticky}>
       <HeaderTopContainer>
         <HeaderTopRow>
-          <NavBarResponsiveWrap onClick={handleToggleNavMobile}>
+          <NavBarResponsiveWrap onClick={handleToggle}>
             <MenuResponsive>
               <span></span>
               <span></span>
