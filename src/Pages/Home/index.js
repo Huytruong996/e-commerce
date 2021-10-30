@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   HeaderTop,
   HeaderMenu,
@@ -26,18 +26,26 @@ const HomePage = ({ opened }) => {
   const { ToggleMenuMbDispatch } = useContext(GlobalContext);
 
   const handleToggleNavMobile = async () => {
-    if (opened) await ToggleMenuMbDispatch({ payload: { opened: !opened } });
+    // if (opened) await ToggleMenuMbDispatch({ payload: { opened: !opened } });
+    setValue(false);
   };
-
+  const [value, setValue] = useState(false);
+  const handleToggle = () => {
+    setValue(!value);
+  };
   return (
     <React.Fragment>
       <header ref={headerRef}>
-        <HeaderTop {...HeaderTopData} isSticky={isSticky} />
+        <HeaderTop
+          {...HeaderTopData}
+          isSticky={isSticky}
+          handleToggle={handleToggle}
+        />
         <HeaderMenu Home isSticky={isSticky} />
-        <MenuMobile {...HeaderVerticalMenuData} opened={opened} />
+        <MenuMobile {...HeaderVerticalMenuData} opened={value} />
         <ShopifySectionMobile />
       </header>
-      <BodyContent opened={opened} onClick={handleToggleNavMobile}>
+      <BodyContent opened={value} onClick={handleToggleNavMobile}>
         <Slider {...SLiderData} />
         <HomeBanner
           img={
