@@ -1,6 +1,6 @@
 export const firebaseConfig = {
   apiKey: "AIzaSyCka4AhWHsVLDioGT_Gx4gmdGeYSpDVn70",
-  authDomain: "e-commerce996.herokuapp.com",
+  authDomain: "e-commerce-b2f45.firebaseapp.com",
   projectId: "e-commerce-b2f45",
   storageBucket: "e-commerce-b2f45.appspot.com",
   messagingSenderId: "813141384742",
