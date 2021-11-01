@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   BoxSpecific,
   ContentHighLight,
   ContentMain,
   ContentSpecific,
-  ContentSpecify,
   ContentWrap,
   DetailDescriptionWrap,
   ExpandButton,
@@ -20,9 +19,14 @@ import {
 
 const DetailDescription = () => {
   const [viewMore, setViewMore] = useState(false);
+  const myRef = useRef(null);
+  const handleViewMore = () => {
+    myRef.current.scrollIntoView();
+    setViewMore(!viewMore);
+  };
 
   return (
-    <DetailDescriptionWrap>
+    <DetailDescriptionWrap ref={myRef}>
       <TitleContent>Mô tả sản phẩm</TitleContent>
       <ContentWrap
         className={
@@ -585,7 +589,7 @@ const DetailDescription = () => {
           </BoxSpecific>
         </ContentSpecific>
       </ContentWrap>
-      <ExpandSection onClick={() => setViewMore(!viewMore)}>
+      <ExpandSection onClick={() => handleViewMore()}>
         <ExpandButton>{viewMore ? "THU GỌN" : "XEM THÊM"}</ExpandButton>
       </ExpandSection>
     </DetailDescriptionWrap>

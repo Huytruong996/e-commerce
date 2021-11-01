@@ -1,6 +1,9 @@
 import styled, { css } from "styled-components";
 
-export const BreadCrumbWrap = styled.div``;
+export const BreadCrumbWrap = styled.div`
+  margin-top: 25px;
+  margin-bottom: 23px;
+`;
 
 export const BreadCrumbItems = styled.ul`
   padding-left: 0;

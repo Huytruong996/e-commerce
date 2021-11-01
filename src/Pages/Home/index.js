@@ -1,38 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect } from "react";
 import {
-  HeaderTop,
-  HeaderMenu,
   Slider,
   HomeBanner,
   ProductSecionV1,
   ProductSectionV2,
   ProductGridSectionV1,
-  ShopifySectionMobile,
 } from "../../components";
 import {
-  HeaderTopData,
   SLiderData,
   ProductSectionV1Data,
   ProductSectionV2Data,
   ProductGridSectionV1Data,
-  HeaderVerticalMenuData,
 } from "../../components/Data";
-import MenuMobile from "../../components/MenuMobile";
-import StickyHeader from "../../helper/StickyHeader";
-const HomePage = ({ opened, handleToggle, handleToggleBody }) => {
-  const { headerRef, isSticky } = StickyHeader();
 
+import HomeLayout from "../../layouts/HomeLayout";
+const HomePage = () => {
   return (
-    <React.Fragment>
-      <header ref={headerRef}>
-        <HeaderTop
-          {...HeaderTopData}
-          isSticky={isSticky}
-          handleToggle={handleToggle}
-        />
-        <HeaderMenu Home isSticky={isSticky} />
-        <ShopifySectionMobile />
-      </header>
+    <HomeLayout>
       <Slider {...SLiderData} />
       <HomeBanner
         img={
@@ -48,7 +32,7 @@ const HomePage = ({ opened, handleToggle, handleToggleBody }) => {
         }
       />
       <ProductGridSectionV1 {...ProductGridSectionV1Data} />
-    </React.Fragment>
+    </HomeLayout>
   );
 };
 

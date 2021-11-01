@@ -48,7 +48,6 @@ const ProductSecionV1 = ({ datas }) => {
                   datas.map((data, index) => (
                     <NavItem key={index}>
                       <LinkItem
-                        to="/"
                         onClick={() => setActive(data.id)}
                         active={active === data.id ? 1 : 0}
                       >

@@ -19,6 +19,9 @@ export const DetailDescriptionWrap = styled(SectionContent)`
       background: linear-gradient(-180deg, hsla(0, 0%, 100%, 0) 6%, #fff 83%);
     }
   }
+  .blur-up.lazyloaded {
+    filter: none;
+  }
 `;
 
 export const ContentWrap = styled.div`

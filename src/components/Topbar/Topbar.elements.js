@@ -78,4 +78,36 @@ export const Contact = styled.div`
   }
 `;
 
-export const TrackOrder = styled.div``;
+export const TrackOrder = styled.div`
+  position: relative;
+  padding-right: 15px;
+  margin-right: 15px;
+  &:before {
+    position: absolute;
+    content: "";
+    right: 0;
+    background: #d4d4d4;
+    width: 1px;
+    height: 18px;
+    top: calc(50% - 9px);
+  }
+`;
+
+export const Account = styled.div`
+  display: flex;
+  position: relative;
+  padding-right: 15px;
+  margin-right: 15px;
+  align-items: center;
+  > a:first-child {
+    display: flex;
+    align-items: center;
+    svg {
+      margin: 0;
+      margin-inline-end: 7px;
+    }
+  }
+  span {
+    padding: 0 3px;
+  }
+`;

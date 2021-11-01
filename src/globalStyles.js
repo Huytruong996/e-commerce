@@ -41,6 +41,7 @@ a{
     text-decoration: none;
     color: #000;
     transition: all .35s ease 0s;
+    cursor: pointer;
     &:hover{
       color: #f03333;
     }
@@ -50,14 +51,9 @@ input, select, textarea {
     padding: 5px 6px;
     background: 0 0;
     border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
+
     box-shadow: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    -webkit-appearance: none;}
+
 button{
     cursor: pointer;
     display: inline-block;
@@ -71,7 +67,6 @@ button{
     font-size: 1rem;
     line-height: 1.7;
     border-radius: .25rem;
-    -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .blur-up{
@@ -213,4 +208,86 @@ export const ContentTabWrapper = styled.div`
   position: relative;
 `;
 
+export const HeadingAccount = styled.h2`
+  font-size: 25px;
+  font-weight: 400;
+  margin: 0 0 10px;
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 11px;
+  line-height: 32px;
+  position: relative;
+  :before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #fed700;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    width: 115px;
+  }
+`;
+
+export const FormAccount = styled.form`
+  padding: 30px 0;
+`;
+
+export const ControlWrap = styled.div``;
+
+export const ControlLabel = styled.label`
+  display: block;
+  clear: both;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #333e48;
+  font-size: 14px;
+  span {
+    padding-inline-start: 3px;
+  }
+`;
+
+export const ControlInput = styled.input`
+  display: block;
+  clear: both;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 47px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 14px;
+  background: #fff;
+  padding: 13px 15px;
+  line-height: 1.6;
+  border: 1px solid #dddddd;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: inset 0 0 0 0 #fff;
+  padding-inline-start: 30px;
+  padding-inline-end: 30px;
+  :focus {
+    outline: none;
+    border-color: #fed700;
+  }
+`;
+
+export const ControlButton = styled.button`
+  cursor: pointer;
+  margin-bottom: 10px;
+  min-width: 130px;
+  margin-inline-end: 8px;
+  background: #fed700;
+  color: #333e48;
+  border: 1px solid #fed700;
+  padding: 9px 30px;
+  line-height: 27px;
+  font-weight: 700;
+  white-space: normal;
+  font-size: 14px;
+  border-radius: 25px 25px 25px 25px;
+  :hover {
+    background: #333e48;
+    color: #ffffff;
+    border-color: #333e48;
+  }
+`;
 export default GlobalStyle;

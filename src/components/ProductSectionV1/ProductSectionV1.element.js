@@ -30,7 +30,7 @@ export const NavTabs = styled.ul`
   }
 `;
 
-export const LinkItem = styled(Link)`
+export const LinkItem = styled.a`
   font-size: 18px;
   margin: 0;
   padding: 0 0 9px;
@@ -38,7 +38,7 @@ export const LinkItem = styled(Link)`
   display: block;
   position: relative;
   text-align: center;
-
+  cursor: pointer;
   ::before {
     content: "";
     opacity: 0;

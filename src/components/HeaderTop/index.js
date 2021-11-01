@@ -28,7 +28,7 @@ import {
   SearchIconMobile,
   SearchSubmit,
 } from "./HeaderTop.elements";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import GlobalStyle from "../../globalStyles";
 import MenuMobile from "../MenuMobile";
 import { HeaderVerticalMenuData } from "../Data";
@@ -43,6 +43,11 @@ const HeaderTop = ({
   isSticky,
 }) => {
   const [toggle, setToggle] = useState(false);
+  const history = useHistory();
+  const handleLogo = () => {
+    history.push("/");
+    window.location.reload();
+  };
   return (
     <div>
       <BackgroundFade opened={toggle} onClick={() => setToggle(!toggle)} />
@@ -60,7 +65,7 @@ const HeaderTop = ({
             </NavBarResponsiveWrap>
             <HeaderTopLeft>
               <HeaderTopLogo>
-                <Link to="/">
+                <Link to="/" onClick={() => handleLogo()}>
                   <IMGLogo src={img} alt={alt} />
                 </Link>
               </HeaderTopLogo>
