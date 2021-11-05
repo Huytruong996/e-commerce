@@ -11,7 +11,10 @@ const AccountContent = () => {
       <Row>
         <div className="col-sm-6 col-xs-12">
           <FormWrapper>
-            <Route path="/Account" render={() => <Login focus={true} />} />
+            <Route
+              path="/Account/Login"
+              render={() => <Login focus={true} />}
+            />
             <Route
               path="/Account/Register"
               render={() => <Register focus={true} />}
@@ -20,7 +23,7 @@ const AccountContent = () => {
         </div>
         <div className="col-sm-6 col-xs-12">
           <FormWrapper>
-            <Route path="/Account" render={() => <Register />} />
+            <Route path="/Account/Login" render={() => <Register />} />
             <Route path="/Account/Register" render={() => <Login />} />
           </FormWrapper>
         </div>
