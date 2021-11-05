@@ -1,18 +1,15 @@
 import React from "react";
-import AccountContent from "../../components/AccountContent";
-import BreadCrumb from "../../components/BreadCrumb";
 import { Container } from "../../globalStyles";
 import MainLayout from "../../layouts/MainLayout";
 
-const Account = () => {
+const Cart = () => {
   return (
     <MainLayout>
       <Container>
-        <BreadCrumb />
-        <AccountContent />
+        <div>This is your cart</div>
       </Container>
     </MainLayout>
   );
 };
 
-export default Account;
+export default Cart;

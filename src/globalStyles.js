@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, css } from "styled-components";
+import styled, { createGlobalStyle, css, keyframes } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -270,6 +270,11 @@ export const ControlInput = styled.input`
   }
 `;
 
+const faSpin = keyframes`
+0%{transform:rotate(0)}
+to{transform:rotate(359deg)}
+`;
+
 export const ControlButton = styled.button`
   cursor: pointer;
   margin-bottom: 10px;
@@ -284,10 +289,33 @@ export const ControlButton = styled.button`
   white-space: normal;
   font-size: 14px;
   border-radius: 25px 25px 25px 25px;
+  position: relative;
   :hover {
     background: #333e48;
     color: #ffffff;
     border-color: #333e48;
   }
+
+  ${(props) =>
+    props.disabled
+      ? css`
+          cursor: not-allowed;
+          color: transparent !important;
+          :after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 20px;
+            height: 20px;
+            background: #ffff;
+            animation: ${faSpin} 2s linear infinite;
+            mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 64 64'%3E%3Cpath d='M54.72 53.824c-12.096 12.16-33.28 11.008-45.12-.832-12.16-12.16-12.8-31.616-1.792-44.48.704-.832 1.344-1.664 2.24-2.176 2.304-1.472 5.44-1.152 7.488.832a6.138 6.138 0 011.024 7.168c-.32.576-.576.96-1.024 1.408-8.96 9.664-9.28 24.256-.512 33.024 9.792 9.792 26.048 7.744 34.688-2.176 6.784-7.808 9.088-19.008 4.928-28.864C51.328 5.056 37.12-.896 24 3.52v-.064c15.104-5.248 31.488 1.536 37.632 16.128 4.544 10.688 2.368 22.72-4.608 31.552a23.182 23.182 0 01-2.304 2.688z'/%3E%3C/svg%3E");
+          }
+        `
+      : ``}
 `;
 export default GlobalStyle;

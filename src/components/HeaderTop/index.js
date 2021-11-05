@@ -46,7 +46,6 @@ const HeaderTop = ({
   const history = useHistory();
   const handleLogo = () => {
     history.push("/");
-    window.location.reload();
   };
   return (
     <div>

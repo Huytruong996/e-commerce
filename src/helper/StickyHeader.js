@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 
 const StickyHeader = (defaultSticky = false) => {
   const [isSticky, setSticky] = useState(defaultSticky);
-  const headerRef = useRef(null);
+  const headerRef = useRef();
 
   const toggleSticky = useCallback(
     ({ top, bottom }) => {
@@ -17,7 +17,8 @@ const StickyHeader = (defaultSticky = false) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      toggleSticky(headerRef.current.getBoundingClientRect());
+      headerRef.current &&
+        toggleSticky(headerRef.current.getBoundingClientRect());
     };
     window.addEventListener("scroll", handleScroll);
     return () => {

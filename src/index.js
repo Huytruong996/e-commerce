@@ -1,14 +1,18 @@
 import ReactDOM from "react-dom";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./index.css";
 import "./Grid.scss";
 import App from "./App";
 import "lazysizes";
-import { ThemeProvider } from "@mui/material/styles";
-import { createTheme } from "@mui/material/styles";
-import GlobalContextProvider from "./context/GlobalContext";
-import ScrollToTop from "./hooks/ScrollToTop";
+import { Provider } from "react-redux";
+import {
+  ThemeProvider,
+  StyledEngineProvider,
+  createTheme,
+} from "@mui/material/styles";
+
 import { HashRouter } from "react-router-dom";
+import store from "./redux/createStore";
 const theme = createTheme({
   palette: {
     primary: {
@@ -16,13 +20,16 @@ const theme = createTheme({
     },
   },
 });
+
 ReactDOM.render(
   <HashRouter>
-    <GlobalContextProvider>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </GlobalContextProvider>
+    <Provider store={store}>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </StyledEngineProvider>
+    </Provider>
   </HashRouter>,
   document.getElementById("root")
 );
