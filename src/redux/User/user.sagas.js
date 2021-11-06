@@ -1,7 +1,7 @@
 import userTypes from "./user.types";
 import { takeLatest, call, all, put } from "redux-saga/effects";
 import { auth, getCurrentUser, handleUserProfile } from "../../firebase/utils";
-import { signOut } from "@firebase/auth";
+import { signOut, sendPasswordResetEmail } from "@firebase/auth";
 import { signInSuccess } from "./user.actions";
 
 export function* getSnapShotUserAuth(userAuth) {
@@ -45,12 +45,23 @@ export function* emailSignIn({ payload }) {
   }
 }
 
+export function* resetPassword() {
+  try {
+  } catch (error) {
+    // console.log(error);
+  }
+}
+
 export function* onLogOutUserStart() {
   yield takeLatest(userTypes.LOG_OUT_SUCCESS, logOutUser);
 }
 
 export function* onEmailSignInStart() {
   yield takeLatest(userTypes.EMAIL_SIGN_IN_START, emailSignIn);
+}
+
+export function* onResetPasswordStart() {
+  yield takeLatest(userTypes.RESET_PASSWORD_START, resetPassword);
 }
 
 export function* onCheckUserSession() {

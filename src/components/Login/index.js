@@ -13,25 +13,41 @@ import { useSelector, useDispatch } from "react-redux";
 import { Action, CustomerLogin, RecoverPassword } from "./Login.elements";
 import { emailSignInStart } from "../../redux/User/user.actions";
 import { useForm } from "react-hook-form";
-import { Alert, Slide, Snackbar } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import firebaseErrors from "../../constants/ERROR_FIREBASE";
+import ForgetPassword from "../ForgetPassword";
+import useToggle from "../../customHooks/useToggle";
+import Notication from "../Notication";
 
 const Login = ({ focus }) => {
   const { register, handleSubmit, reset } = useForm();
+  const mobileTemplate = useMediaQuery("(max-width:991px)");
   const [loading, setLoading] = useState();
   const dispatch = useDispatch();
   const [error, setError] = useState();
+  const [isToggle, toggle] = useToggle(false);
   const [stateNoti, setSateNoti] = useState({
     open: false,
     message: "",
     severity: "success",
     vertical: "top",
     horizontal: "right",
+    direction: "down",
   });
 
-  const { open, vertical, horizontal, message, severity } = stateNoti;
   const { currentUser } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (mobileTemplate) {
+      setSateNoti({
+        ...stateNoti,
+        vertical: "bottom",
+        horizontal: "right",
+        direction: "up",
+      });
+    }
+  }, [mobileTemplate]);
 
   useEffect(() => {
     if (error) {
@@ -62,31 +78,14 @@ const Login = ({ focus }) => {
       await dispatch(emailSignInStart({ userAuth }));
     } catch (error) {
       setError(firebaseErrors[error.code]);
-      console.log(error.code);
+      //console.log(error.code);
     }
   };
 
-  const ContentNoti = (props) => {
-    return (
-      <Slide {...props} direction="down">
-        <Alert severity={severity} sx={{ width: "100%" }}>
-          {message}
-        </Alert>
-      </Slide>
-    );
-  };
-  console.log(loading);
   return (
     <React.Fragment>
-      <Snackbar
-        anchorOrigin={{ horizontal, vertical }}
-        open={open}
-        autoHideDuration={2000}
-        key={vertical + horizontal}
-        TransitionComponent={ContentNoti}
-        onClose={(event, reason) => setSateNoti({ ...stateNoti, open: false })}
-      />
-      <CustomerLogin>
+      <Notication {...stateNoti} setSateNoti={setSateNoti} />
+      <CustomerLogin isToggle={isToggle}>
         <HeadingAccount>Login</HeadingAccount>
         <p>Welcome back! Sign in to your account</p>
         <FormAccount onSubmit={handleSubmit(onSubmit)}>
@@ -116,7 +115,7 @@ const Login = ({ focus }) => {
           </ControlWrap>
           <ControlWrap>
             <Action>
-              <a>Forgotten Password?</a>
+              <a onClick={() => toggle()}>Forgotten Password?</a>
             </Action>
             <ControlButton disabled={loading}>Login</ControlButton>
             <ControlButton
@@ -135,7 +134,9 @@ const Login = ({ focus }) => {
           </ControlWrap>
         </FormAccount>
       </CustomerLogin>
-      <RecoverPassword></RecoverPassword>
+      <RecoverPassword isToggle={isToggle}>
+        <ForgetPassword toggle={toggle} />
+      </RecoverPassword>
     </React.Fragment>
   );
 };

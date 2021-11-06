@@ -318,4 +318,14 @@ export const ControlButton = styled.button`
         `
       : ``}
 `;
+
+export const CancelButton = styled(ControlButton)`
+  background: #e6e6e6;
+  border: 1px solid #e6e6e6;
+  :hover {
+    background: #333e48;
+    color: #ffffff;
+    border-color: #333e48;
+  }
+`;
 export default GlobalStyle;

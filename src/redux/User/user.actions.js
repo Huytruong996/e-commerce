@@ -7,6 +7,15 @@ export const checkUserSession = () => ({
 export const logOutSuccess = () => ({
   type: userTypes.LOG_OUT_SUCCESS,
 });
+
+export const resetPasswordStart = () => ({
+  type: userTypes.RESET_PASSWORD_START,
+});
+
+export const resetPasswordSuccess = () => ({
+  type: userTypes.RESET_PASSWORD_SUCCESS,
+});
+
 export const emailSignInStart = (user) => ({
   type: userTypes.EMAIL_SIGN_IN_START,
   payload: user,

@@ -1,9 +1,25 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const CustomerLogin = styled.div``;
+export const CustomerLogin = styled.div`
+  ${(props) =>
+    props.isToggle
+      ? css`
+          display: none;
+        `
+      : css`
+          display: block;
+        `}
+`;
 
 export const RecoverPassword = styled.div`
-  display: none;
+  ${(props) =>
+    props.isToggle
+      ? css`
+          display: block;
+        `
+      : css`
+          display: none;
+        `}
 `;
 
 export const Action = styled.div`
