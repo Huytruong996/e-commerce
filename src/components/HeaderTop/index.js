@@ -32,6 +32,7 @@ import { Link, useHistory } from "react-router-dom";
 import GlobalStyle from "../../globalStyles";
 import MenuMobile from "../MenuMobile";
 import { HeaderVerticalMenuData } from "../Data";
+import { useToggle } from "../../customHooks";
 
 const HeaderTop = ({
   img,
@@ -42,20 +43,21 @@ const HeaderTop = ({
   CartLink,
   isSticky,
 }) => {
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
+  const [isToggle, toggle] = useToggle(false);
   const history = useHistory();
   const handleLogo = () => {
     history.push("/");
   };
   return (
     <div>
-      <BackgroundFade opened={toggle} onClick={() => setToggle(!toggle)} />
-      <MenuMobile {...HeaderVerticalMenuData} opened={toggle} />
-      <GlobalStyle opened={toggle} />
+      <BackgroundFade opened={isToggle} onClick={() => toggle()} />
+      <MenuMobile {...HeaderVerticalMenuData} opened={isToggle} />
+      <GlobalStyle opened={isToggle} />
       <HeaderWrapTop isSticky={isSticky}>
         <HeaderTopContainer>
           <HeaderTopRow>
-            <NavBarResponsiveWrap onClick={() => setToggle(!toggle)}>
+            <NavBarResponsiveWrap onClick={() => toggle()}>
               <MenuResponsive>
                 <span></span>
                 <span></span>

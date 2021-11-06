@@ -1,3 +1,3 @@
 import useAuth from "./useAuth";
-
-export { useAuth };
+import useToggle from "./useToggle";
+export { useAuth, useToggle };

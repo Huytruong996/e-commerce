@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, useHistory, useLocation } from "react-router";
+import { Route } from "react-router";
 import { Row } from "../../globalStyles";
 import Login from "../Login";
 import Register from "../Register";
